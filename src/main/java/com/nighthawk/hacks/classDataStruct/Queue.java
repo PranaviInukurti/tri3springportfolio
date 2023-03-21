@@ -1,6 +1,7 @@
 package com.nighthawk.hacks.classDataStruct;
 
 import java.util.Iterator;
+import java.util.Random;
 
 /**
  * Queue: custom implementation
@@ -207,7 +208,25 @@ class QueueManager<T> {
             System.out.println();
         }
     }
+
+    public String[] shuffle(String[] ogArray) {
+        for (int i = 0; i < ogArray.length - 1; i++)
+        {
+            String temp = "";
+            Random random = new Random();
+            int otherElement = random.nextInt(0, ogArray.length - 1);
+
+            temp = ogArray[i];
+
+            ogArray[i] = ogArray[otherElement];
+
+            ogArray[otherElement] = temp;
+        }
+
+        return ogArray;
+    }
 }
+
 
 /**
  * Driver Class
@@ -216,47 +235,60 @@ class QueueManager<T> {
 class QueueTester {
     public static void main(String[] args)
     {
-        // Create iterable Queue of Words
-        QueueManager.DEBUG = false;
-        String[] words = new String[] { "seven", "slimy", "snakes", "sallying", "slowly", "slithered", "southward"};
-        QueueManager<String> qWords = new QueueManager<>("Words", words );
-        qWords.printQueue();
-        qWords.deleteList();
+        // // Create iterable Queue of Words
+        // QueueManager.DEBUG = false;
+        // String[] words = new String[] { "seven", "slimy", "snakes", "sallying", "slowly", "slithered", "southward"};
+        // QueueManager<String> qWords = new QueueManager<>("Words", words );
+        // qWords.printQueue();
+        // qWords.deleteList();
 
-        // Create iterable Queue of Integers
-        QueueManager.DEBUG = false;
-        Object[] numbers = new Integer[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        QueueManager<Object> qNums = new QueueManager<>("Integers", numbers );
-        qNums.printQueue();
-        qNums.deleteList();
+        // // Create iterable Queue of Integers
+        // QueueManager.DEBUG = false;
+        // Object[] numbers = new Integer[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        // QueueManager<Object> qNums = new QueueManager<>("Integers", numbers );
+        // qNums.printQueue();
+        // qNums.deleteList();
 
-        // Create iterable Queue of NCS Generics
-        QueueManager.DEBUG = false;
-        Animal.setOrder(Animal.KeyType.name);
-        Alphabet.setOrder(Alphabet.KeyType.letter);
-        Cupcakes.setOrder(Cupcakes.KeyType.flavor);
-        // Illustrates use of a series of repeating arguments
-        QueueManager<Generics> qGenerics = new QueueManager<>("Custom Generics",
-                Alphabet.alphabetData(),
-                Animal.animalData(),
-                Cupcakes.cupCakeData()
-        );
-        qGenerics.printQueue();
-        qGenerics.deleteList();
+        // // Create iterable Queue of NCS Generics
+        // QueueManager.DEBUG = false;
+        // Animal.setOrder(Animal.KeyType.name);
+        // Alphabet.setOrder(Alphabet.KeyType.letter);
+        // Cupcakes.setOrder(Cupcakes.KeyType.flavor);
+        // // Illustrates use of a series of repeating arguments
+        // QueueManager<Generics> qGenerics = new QueueManager<>("Custom Generics",
+        //         Alphabet.alphabetData(),
+        //         Animal.animalData(),
+        //         Cupcakes.cupCakeData()
+        // );
+        // qGenerics.printQueue();
+        // qGenerics.deleteList();
 
-        // Create iterable Queue of Mixed types of data
-        QueueManager.DEBUG = false;
-        QueueManager<Object> qMix = new QueueManager<>("Mixed");
-        qMix.add("Start");
-        qMix.addList(
-                words,
-                numbers,
-                Alphabet.alphabetData(),
-                Animal.animalData(),
-                Cupcakes.cupCakeData()
-        );
-        qMix.add("End");
-        qMix.printQueue();
-        qMix.deleteList();
+        // // Create iterable Queue of Mixed types of data
+        // QueueManager.DEBUG = false;
+        // QueueManager<Object> qMix = new QueueManager<>("Mixed");
+        // qMix.add("Start");
+        // qMix.addList(
+        //         words,
+        //         numbers,
+        //         Alphabet.alphabetData(),
+        //         Animal.animalData(),
+        //         Cupcakes.cupCakeData()
+        // );
+        // qMix.add("End");
+        // qMix.printQueue();
+        // qMix.deleteList();
+
+        System.out.printf("\n");
+
+        System.out.printf("TRUE/FALSE:\n\n");
+        String[] questions = new String[]
+        {"All elements of an array are of the same type\n", "Arrays cannot contain strings as elements\n", "Two-dimensional arrays always have the same number of rows and columns\n", "Elements of different columns in a 2D array can have different types\n", "A method cannot return a 2D array\n", "A method cannot change the length of an array argument\n", "A method cannot change the number of columns of an argument that is a 2D array\n"};
+        QueueManager qOG = new QueueManager("Questions");
+        qOG.addList(questions);
+        qOG.printQueue();
+        QueueManager qShuffle = new QueueManager("Shuffle");
+        questions = qShuffle.shuffle(questions);
+        qShuffle.addList(questions);
+        qShuffle.printQueue();
     }
 }
