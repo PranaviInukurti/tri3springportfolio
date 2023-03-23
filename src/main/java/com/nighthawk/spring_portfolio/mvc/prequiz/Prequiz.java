@@ -15,21 +15,31 @@ public class Prequiz {
 
     //if statements to compare score and rating/level
 
-    double average  = (score + rating)/2;
+    public String computeRating() {
+        double average  = (score + rating)/2;
 
-    if (average <= 3) {
-        System.out.println("You are a beginner. You will be assigned the beginner questions on Binary Search and Sorting until proven competency");
-        level = "Beginner";
-    }
-    else if (average >= 4 && average <= 8)
-    {
-        System.out.println("You are in the intermediate level. You will be assigned the intermediate questions on Binary Search and Sorting until proven competency");
-        level = "Intermediate";
-    }
-    else if (average = 9 || average = 10) 
-    {
-        System.out.println("You are in the advanced range. You will be given the advanced questions on Binary Search and Sorting until proven competency");
-        level = "Advanced";
+        if (average <= 3) 
+        {
+            level = "Beginner";
+            return level;
+        }
+        else if (average >= 4 && average <= 8)
+        {
+            level = "Intermediate";
+            return level;
+        }
+        else if (average == 9 || average == 10) 
+        {
+            level = "Advanced";
+            return level;
+        }
+        else 
+        {
+            return null;
+            //use HTTPS.StatusOK function later, place holder 
+        
+        }
     }
 
 }
+
