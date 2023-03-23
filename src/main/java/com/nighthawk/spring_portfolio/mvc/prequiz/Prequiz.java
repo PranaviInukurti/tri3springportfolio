@@ -15,7 +15,7 @@ public class Prequiz {
 
     //if statements to compare score and rating/level
 
-    public String computeRating() {
+    public String computeRatingPrequiz() {
         double average  = (score + rating)/2;
 
         if (average <= 3) 
@@ -41,5 +41,21 @@ public class Prequiz {
         }
     }
 
+    /*
+    public String helpStudents (String level) {
+        if (level == "Begineer") {
+            
+        }
+        else if (level == "Intermediate") {
+
+        }
+        else if (level == "Advanced") {
+
+        }
+        else {
+            return null; //place holder
+        }
+    }
+    */
 }
 
