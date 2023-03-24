@@ -1,16 +1,18 @@
 package com.nighthawk.spring_portfolio.mvc.prequiz;
 
 public class Prequiz {
-    public int scale;
+    private int scale;
     private int score;
     private int rating;
     private String level;
+    private Long id;
 
-    public Prequiz (int scaleInput, int scoreInput, int ratingInput, String levelInput) {
+    public Prequiz (int scaleInput, int scoreInput, int ratingInput, String levelInput, Long id) {
         this.scale = scaleInput;
         this.score = scoreInput;
         this.rating = ratingInput;
         this.level = levelInput;
+        this.id = id;
     }
 
     //if statements to compare score and rating/level
