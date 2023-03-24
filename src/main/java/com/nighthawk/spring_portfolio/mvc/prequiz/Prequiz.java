@@ -1,7 +1,7 @@
 package com.nighthawk.spring_portfolio.mvc.prequiz;
 
 public class Prequiz {
-    private int scale;
+    public int scale;
     private int score;
     private int rating;
     private String level;
