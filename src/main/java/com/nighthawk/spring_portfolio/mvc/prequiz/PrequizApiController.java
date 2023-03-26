@@ -22,31 +22,36 @@ public class PrequizApiController {
     @Autowired
     PrequizJpaRepository repository;
 
+    @GetMapping("/create/{quizResults}") //gets results
+    public Prequiz displayResults(Long id, String level) {
+        /* 
+        String username = getId();
+        Prequiz result = new Prequiz(id, level);
+        repository.save(result);
+        return new ResponseEntity<>(repository.findById(username), HttpStatus.OK);
+        */
+        public String toString() {
+            return "{" +
+                    "Id='" + id + '\'' +
+                    ", level=" + level +
+                    '}';
+        }
+    
+        if (id.isPresent()) {
+            return ResponseEntity.ok().toString;
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
-    @GetMapping("/api/Prequiz/questions") 
+    @GetMapping("/api/Prequiz/questions") //displays results
     public Prequiz getQuestions(Long id) {
-        return (repository.findById(id).isPresent())
-                ? repository.findById(id).get()
-                : null;
+        return new ResponseEntity<>(repository.computeRatingPrequiz(), HttpStatus.OK);
     }
-
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Object> deleteRecipes(@PathVariable Long id) {
-        repository.deleteById(id);  
-        return new ResponseEntity<>( ""+ id +" deleted", HttpStatus.OK);
-    }
-
-    @CreateMapping("/uuihiuh/")
-    public recipes getRecipe(Long id) {
-        return (repository.findById(id).isPresent())
-                ? repository.findById(id).get()
-                : null;
-    }
-
 
 
     public void saveData( ) {
-        repository.save();
+        repository.save(Prequiz);
     }
 
    

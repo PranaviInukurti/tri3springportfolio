@@ -1,5 +1,7 @@
 package com.nighthawk.spring_portfolio.mvc.prequiz;
 
+import java.util.Scanner;
+
 public class Prequiz {
     private int scale;
     private int score;
@@ -16,6 +18,7 @@ public class Prequiz {
     }
 
     //if statements to compare score and rating/level
+
 
     public String computeRatingPrequiz() {
         double average  = (score + rating)/2;
@@ -43,21 +46,6 @@ public class Prequiz {
         }
     }
 
-    /*
-    public String helpStudents (String level) {
-        if (level == "Begineer") {
-            
-        }
-        else if (level == "Intermediate") {
 
-        }
-        else if (level == "Advanced") {
-
-        }
-        else {
-            return null; //place holder
-        }
-    }
-    */
 }
 
