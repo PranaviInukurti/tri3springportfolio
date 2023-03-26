@@ -46,6 +46,13 @@ public class Prequiz {
         }
     }
 
+      // Tester method
+      public static void main(String[] args) {
+        // Random set of test cases
+        Prequiz quiz = new Prequiz(10, 5, 7, "test", (long) 5);
+        System.out.println("Decrypted Text: " + quiz.computeRatingPrequiz());
+    }
+
 
 }
 
