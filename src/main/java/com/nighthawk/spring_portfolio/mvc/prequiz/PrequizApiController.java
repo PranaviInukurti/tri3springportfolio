@@ -1,4 +1,4 @@
-/* 
+
 package com.nighthawk.spring_portfolio.mvc.prequiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,4 +38,3 @@ public class PrequizApiController {
 
     // Other methods for saving and retrieving data
 }
-*/

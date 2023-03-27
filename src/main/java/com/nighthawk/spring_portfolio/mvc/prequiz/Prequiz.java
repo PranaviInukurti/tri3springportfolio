@@ -1,4 +1,3 @@
-/* 
 package com.nighthawk.spring_portfolio.mvc.prequiz;
 
 import java.util.Scanner;
@@ -57,4 +56,3 @@ public class Prequiz {
 
 }
 
-*/
