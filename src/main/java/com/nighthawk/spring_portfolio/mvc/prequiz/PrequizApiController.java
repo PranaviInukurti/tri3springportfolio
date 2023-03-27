@@ -33,13 +33,13 @@ public class PrequizApiController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    /* 
-    @GetMapping("/api/Prequiz/questions") //displays results
-    public ResponseEntity<String> getQuestions() {
-        String rating = repository.computeRatingPrequiz();
-        return new ResponseEntity<>(rating, HttpStatus.OK);
-    }
-    */
+    
+    //@GetMapping("/api/Prequiz/questions") //displays results
+    //public ResponseEntity<String> getQuestions() {
+        //String rating = repository.computeRatingPrequiz();
+        //return new ResponseEntity<>(rating, HttpStatus.OK);
+    //}
+    
 
     // Other methods for saving and retrieving data
     
