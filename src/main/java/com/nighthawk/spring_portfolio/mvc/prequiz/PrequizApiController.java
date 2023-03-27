@@ -20,9 +20,12 @@ import java.text.SimpleDateFormat;
 @RequestMapping("/api/Prequiz")
 public class PrequizApiController {
 
+     
     @Autowired
     PrequizJpaRepository repository;
+    
 
+    
     @GetMapping("/create/{quizResults}") //gets results
     public ResponseEntity<Prequiz> displayResults(@PathVariable Long id, @PathVariable String level) {
         Prequiz result = new Prequiz(10, 8, 9, level, id);
@@ -30,11 +33,14 @@ public class PrequizApiController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    /* 
     @GetMapping("/api/Prequiz/questions") //displays results
     public ResponseEntity<String> getQuestions() {
         String rating = repository.computeRatingPrequiz();
         return new ResponseEntity<>(rating, HttpStatus.OK);
     }
+    */
 
     // Other methods for saving and retrieving data
+    
 }

@@ -6,7 +6,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 public interface PrequizJpaRepository extends JpaRepository<Prequiz,Long> {
+    /* 
     Prequiz findById(String name);
     Prequiz getId(Long id);
     String computeRatingPrequiz();
+    */
 }
