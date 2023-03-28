@@ -62,7 +62,6 @@ public class Score {
     @Email
     private String email;
 
-    @NotEmpty
     private int quiz;
 
 

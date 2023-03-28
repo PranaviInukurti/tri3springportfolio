@@ -32,5 +32,13 @@ public class ScoreApiController {
         return new ResponseEntity<>( repository.findAllByOrderByEmailAsc(), HttpStatus.OK);
     }
 
+    @PostMapping("/postscore")
+    public Score postScore(@RequestBody Score score) {
+        Score scoreReturn = new Score(score.getId(), score.getEmail(), score.getQuiz());
+        //return scoreReturn; 
+        return repository.save(scoreReturn);
+    }
+
+
   
 }
