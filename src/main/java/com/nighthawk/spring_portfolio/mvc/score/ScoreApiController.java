@@ -24,9 +24,7 @@ public class ScoreApiController {
     @Autowired
     private ScoreJpaRepository repository;
 
-    /*
-    GET List of People
-     */
+   
     @GetMapping("/")
     public ResponseEntity<List<Score>> getScore() {
         return new ResponseEntity<>( repository.findAllByOrderByEmailAsc(), HttpStatus.OK);
@@ -38,6 +36,35 @@ public class ScoreApiController {
         //return scoreReturn; 
         return repository.save(scoreReturn);
     }
+
+    @GetMapping("/deletescore/{id}")
+    public void deleteScore(@PathVariable long id) {
+        Optional<Score> optional = repository.findById(id);
+        if (optional.isPresent()) { // Good ID
+            repository.deleteById(id); // value from findByID
+        }
+
+    }
+
+    @PostMapping("/updatescore")
+    public Score updateScore(@RequestBody Score score) {
+        Optional<Score> score1 = repository.findById(score.getId()); 
+        //SO THIS IS THE PIECE OF CODE TO CHANGE TYPES!!!!!!
+        Score score2 = score1.orElse(null);
+
+        //debugging
+        //System.out.println("person2: " + person2); 
+     
+        
+        //update user info only if info is provided
+        //if (score.getQuiz() != null) {
+            score2.setQuiz(score.getQuiz());
+        //}
+
+        
+        return repository.save(score2); 
+    }
+    
 
 
   
