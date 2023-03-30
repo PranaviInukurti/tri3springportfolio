@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 import java.text.SimpleDateFormat;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 @RestController
 @RequestMapping("/api/person")
 public class PersonApiController {
@@ -74,6 +76,9 @@ public class PersonApiController {
         } catch (Exception e) {
             return new ResponseEntity<>(dobString +" error; try MM-dd-yyyy", HttpStatus.BAD_REQUEST);
         }
+
+        password = BCrypt.hashpw(password, BCrypt.gensalt());
+
         // A person object WITHOUT ID will create a new record with default roles as student
         Person person = new Person(email, password, name, dob);
         repository.save(person);
