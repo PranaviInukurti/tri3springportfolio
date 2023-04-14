@@ -11,6 +11,8 @@ import com.nighthawk.spring_portfolio.mvc.note.Note;
 import com.nighthawk.spring_portfolio.mvc.note.NoteJpaRepository;
 import com.nighthawk.spring_portfolio.mvc.person.Person;
 import com.nighthawk.spring_portfolio.mvc.person.PersonDetailsService;
+import com.nighthawk.spring_portfolio.mvc.quiz.Quiz;
+import com.nighthawk.spring_portfolio.mvc.quiz.QuizJpaRepository;
 
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class ModelInit {
     @Autowired JokesJpaRepository jokesRepo;
     @Autowired NoteJpaRepository noteRepo;
     @Autowired PersonDetailsService personService;
+    @Autowired QuizJpaRepository quizRepo;
 
     @Bean
     CommandLineRunner run() {  // The run() method will be executed after the application starts
@@ -45,6 +48,14 @@ public class ModelInit {
                     Note n = new Note(text, person);  // constructor uses new person as Many-to-One association
                     noteRepo.save(n);  // JPA Save                  
                 }
+            }
+
+             // Person database is populated with test data
+            Quiz[] quizArray = Quiz.init();
+            for (Quiz quiz : quizArray) {
+                List<Quiz> quizFound = quizRepo.findByQuestionIgnoreCase(quiz.getQuestion());  // JPA lookup
+                if (quizFound.size() == 0)
+                    quizRepo.save(new Quiz(null, quiz.getQuestion(), quiz.getAnswer(), quiz.getDifficulty())); //JPA save
             }
 
         };

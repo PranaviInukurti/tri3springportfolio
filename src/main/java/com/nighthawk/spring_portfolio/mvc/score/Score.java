@@ -1,9 +1,5 @@
 package com.nighthawk.spring_portfolio.mvc.score;
 
-
-
-
-
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
