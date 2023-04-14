@@ -51,6 +51,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 				try {
 					// Get username from the token if jwt cookie exists
 					username = jwtTokenUtil.getUsernameFromToken(jwtToken);
+					//Custom debugging
+					System.out.println("Username: " + username);
 				} catch (IllegalArgumentException e) {
 					System.out.println("Unable to get JWT Token");
 				} catch (ExpiredJwtException e) {
