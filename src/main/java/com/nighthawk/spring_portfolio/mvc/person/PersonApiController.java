@@ -65,25 +65,37 @@ public class PersonApiController {
     /*
     POST Aa record by Requesting Parameters from URI
      */
-    @PostMapping( "/post")
-    public ResponseEntity<Object> postPerson(@RequestParam("email") String email,
-                                             @RequestParam("password") String password,
-                                             @RequestParam("name") String name,
-                                             @RequestParam("dob") String dobString) {
-        Date dob;
-        try {
-            dob = new SimpleDateFormat("MM-dd-yyyy").parse(dobString);
-        } catch (Exception e) {
-            return new ResponseEntity<>(dobString +" error; try MM-dd-yyyy", HttpStatus.BAD_REQUEST);
-        }
+    // @PostMapping( "/post")
+    // public ResponseEntity<Object> postPerson(@RequestParam("email") String email,
+    //                                          @RequestParam("password") String password,
+    //                                          @RequestParam("name") String name,
+    //                                          @RequestParam("dob") String dobString) {
+    //     Date dob;
+    //     try {
+    //         dob = new SimpleDateFormat("MM-dd-yyyy").parse(dobString);
+    //     } catch (Exception e) {
+    //         return new ResponseEntity<>(dobString +" error; try MM-dd-yyyy", HttpStatus.BAD_REQUEST);
+    //     }
 
-        password = BCrypt.hashpw(password, BCrypt.gensalt());
+    //     password = BCrypt.hashpw(password, BCrypt.gensalt());
+
+    //     // A person object WITHOUT ID will create a new record with default roles as student
+    //     Person person = new Person(email, password, name, dob);
+    //     repository.save(person);
+    //     return new ResponseEntity<>(email +" is created successfully", HttpStatus.CREATED);
+    // }
+
+    @PostMapping( "/post")
+    public ResponseEntity<Object> postPerson(@RequestBody Person person) {
+
+        String password = BCrypt.hashpw(person.getPassword(), BCrypt.gensalt());
 
         // A person object WITHOUT ID will create a new record with default roles as student
-        Person person = new Person(email, password, name, dob);
-        repository.save(person);
-        return new ResponseEntity<>(email +" is created successfully", HttpStatus.CREATED);
+        Person personCreate = new Person(person.getEmail(), password, person.getName(), person.getDob());
+        repository.save(personCreate);
+        return new ResponseEntity<>(person.getEmail() +" is created successfully", HttpStatus.CREATED);
     }
+
 
     /*
     The personSearch API looks across database for partial match to term (k,v) passed by RequestEntity body
