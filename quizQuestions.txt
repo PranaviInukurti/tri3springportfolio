@@ -2,3 +2,7 @@ Which of the following is a correct way to create an ArrayList? || A. ArrayList<
 D 
 easy 
 arraylist
+Which of these are not a valid method for Arraylists? || A. Get || B. indexof || C. Addall || D. Delete
+D 
+easy 
+arraylist

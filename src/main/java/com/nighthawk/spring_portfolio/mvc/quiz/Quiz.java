@@ -69,7 +69,7 @@ public class Quiz {
 
         ArrayList<Quiz> quizArrayList = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("test.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("quizQuestions.txt"));
             String line;
             int i = 1;
             Quiz q = null;
@@ -88,7 +88,7 @@ public class Quiz {
                 if (i % 4 == 0) {
                     q.setTopic(line);
                     quizArrayList.add(q);
-                    i = 1; 
+                    i = 0; 
                 }
                 i++;
             }
@@ -97,14 +97,6 @@ public class Quiz {
             e.printStackTrace();
         }
 
-        /* 
-        Quiz q2 = new Quiz();
-        q2.setQuestion("Which of the following is a correct way to create an ArrayList? || A. ArrayList<int> myList = new ArrayList<int>(); || B. ArrayList<String> myList = ArrayList<String>(); || C. ArrayList<> myList = new ArrayList<Integer>(); || D. ArrayList<Integer> myList = new ArrayList<Integer>();");
-        q2.setAnswer("D");
-        q2.setDifficulty("easy");
-        q2.setTopic("arraylist");
-        */
-
         System.out.println(quizArrayList);
 
         Quiz[] quizs = new Quiz[quizArrayList.size()];
@@ -112,8 +104,6 @@ public class Quiz {
             quizs[i] = quizArrayList.get(i);
         }
 
-        // Array definition and data initialization
-        // Quiz quizs[] = {q1};
         return(quizs);
     }
 
