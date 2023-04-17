@@ -1,6 +1,9 @@
  
 package com.nighthawk.spring_portfolio.mvc.quiz;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
@@ -58,15 +61,59 @@ public class Quiz {
     public static Quiz[] init() {
 
         // basics of class construction
-        Quiz q1 = new Quiz();
-        q1.setQuestion("Which of the following is a correct way to create an ArrayList? || A. ArrayList<int> myList = new ArrayList<int>(); || B. ArrayList<String> myList = ArrayList<String>(); || C. ArrayList<> myList = new ArrayList<Integer>(); || D. ArrayList<Integer> myList = new ArrayList<Integer>();");
-        q1.setAnswer("D");
-        q1.setDifficulty("easy");
-        q1.setTopic("arraylist");
+        // Quiz q1 = new Quiz();
+        // q1.setQuestion("Which of the following is a correct way to create an ArrayList? || A. ArrayList<int> myList = new ArrayList<int>(); || B. ArrayList<String> myList = ArrayList<String>(); || C. ArrayList<> myList = new ArrayList<Integer>(); || D. ArrayList<Integer> myList = new ArrayList<Integer>();");
+        // q1.setAnswer("D");
+        // q1.setDifficulty("easy");
+        // q1.setTopic("arraylist");
 
+        ArrayList<Quiz> quizArrayList = new ArrayList<>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("test.txt"));
+            String line;
+            int i = 1;
+            Quiz q = null;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+                if (i % 4 == 1) {
+                    q = new Quiz();
+                    q.setQuestion(line);
+                }
+                if (i % 4 == 2) {
+                    q.setAnswer(line);
+                }
+                if (i % 4 == 3) {
+                    q.setDifficulty(line);
+                }
+                if (i % 4 == 0) {
+                    q.setTopic(line);
+                    quizArrayList.add(q);
+                    i = 1; 
+                }
+                i++;
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        /* 
+        Quiz q2 = new Quiz();
+        q2.setQuestion("Which of the following is a correct way to create an ArrayList? || A. ArrayList<int> myList = new ArrayList<int>(); || B. ArrayList<String> myList = ArrayList<String>(); || C. ArrayList<> myList = new ArrayList<Integer>(); || D. ArrayList<Integer> myList = new ArrayList<Integer>();");
+        q2.setAnswer("D");
+        q2.setDifficulty("easy");
+        q2.setTopic("arraylist");
+        */
+
+        System.out.println(quizArrayList);
+
+        Quiz[] quizs = new Quiz[quizArrayList.size()];
+        for (int i = 0; i < quizArrayList.size(); i++) {
+            quizs[i] = quizArrayList.get(i);
+        }
 
         // Array definition and data initialization
-        Quiz quizs[] = {q1};
+        // Quiz quizs[] = {q1};
         return(quizs);
     }
 
