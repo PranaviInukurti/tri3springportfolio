@@ -58,13 +58,23 @@ public class Score {
     @Email
     private String email;
 
-    private int quiz;
+    private String quiz;
+
+    private int attempt;
+
+    private int correct;
+    private int total;
+
+
 
 
     // Constructor used when building object from an API
-    public Score(String email, int quiz) {
+    public Score(String email, String quiz, int attempt, int correct, int total) {
         this.email = email;
         this.quiz = quiz;
+        this.attempt = attempt;
+        this.correct = correct;
+        this.total = total;
     }
 
   

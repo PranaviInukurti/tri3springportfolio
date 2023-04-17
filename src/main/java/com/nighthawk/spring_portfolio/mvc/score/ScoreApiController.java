@@ -32,7 +32,7 @@ public class ScoreApiController {
 
     @PostMapping("/postscore")
     public Score postScore(@RequestBody Score score) {
-        Score scoreReturn = new Score(score.getId(), score.getEmail(), score.getQuiz());
+        Score scoreReturn = new Score(score.getId(), score.getEmail(), score.getQuiz(), score.getAttempt(), score.getCorrect(), score.getTotal());
         //return scoreReturn; 
         return repository.save(scoreReturn);
     }
@@ -58,7 +58,7 @@ public class ScoreApiController {
         
         //update user info only if info is provided
         //if (score.getQuiz() != null) {
-            score2.setQuiz(score.getQuiz());
+            score2.setCorrect(score.getCorrect());
         //}
 
         
