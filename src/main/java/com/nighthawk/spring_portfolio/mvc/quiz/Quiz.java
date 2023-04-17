@@ -52,6 +52,7 @@ public class Quiz {
     //private String right;
     //private String wrong;
     private String difficulty;
+    private String topic; 
 
         // Initialize static test data 
     public static Quiz[] init() {
@@ -61,6 +62,7 @@ public class Quiz {
         q1.setQuestion("Which of the following is a correct way to create an ArrayList? || A. ArrayList<int> myList = new ArrayList<int>(); || B. ArrayList<String> myList = ArrayList<String>(); || C. ArrayList<> myList = new ArrayList<Integer>(); || D. ArrayList<Integer> myList = new ArrayList<Integer>();");
         q1.setAnswer("D");
         q1.setDifficulty("easy");
+        q1.setTopic("arraylist");
 
 
         // Array definition and data initialization

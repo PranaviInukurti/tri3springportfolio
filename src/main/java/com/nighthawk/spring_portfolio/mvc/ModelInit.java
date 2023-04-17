@@ -55,7 +55,7 @@ public class ModelInit {
             for (Quiz quiz : quizArray) {
                 List<Quiz> quizFound = quizRepo.findByQuestionIgnoreCase(quiz.getQuestion());  // JPA lookup
                 if (quizFound.size() == 0)
-                    quizRepo.save(new Quiz(null, quiz.getQuestion(), quiz.getAnswer(), quiz.getDifficulty())); //JPA save
+                    quizRepo.save(new Quiz(null, quiz.getQuestion(), quiz.getAnswer(), quiz.getDifficulty(), quiz.getTopic())); //JPA save
             }
 
         };

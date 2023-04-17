@@ -26,7 +26,7 @@ public class QuizApiController {
 
    
     @GetMapping("/")
-    public ResponseEntity<List<Quiz>> getScore() {
+    public ResponseEntity<List<Quiz>> getQuiz() {
         return new ResponseEntity<>( repository.findAllByOrderByQuestionAsc(), HttpStatus.OK);
     }
 /* 
