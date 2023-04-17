@@ -6,3 +6,147 @@ Which of these are not a valid method for Arraylists? || A. Get || B. indexof ||
 D 
 easy 
 arraylist
+What error may be thrown when trying to add or delete an element during a traversal with an enhanced for loop? || A. NullPointerException  || B. InterruptedException  || C. ConcurrentModificationException || D. IllegalStateException 
+C 
+medium 
+recursion
+Which of the following are false about indexOf? || A. finds and returns the index of the character(s) it's looking for || B. returns -1 if it can't find it || C. This is valid for checking if “!” exists: comment.indexOf("!") >= 0 || D. only used for strings
+D 
+medium 
+misc 
+What is the time complexity of binary search in an ordered array with n elements? || A.  O(log n) || B. O(n) || C.  O(n log n) || D. O(n^2)
+A 
+easy 
+binarysearch
+Hash maps are built on top of what underlying data structure? || A. ArrayList || B.  LinkedList || C. TreeMap || D. Array
+D 
+medium 
+hashmap
+Which of the following is true about ArrayLists? || A. Elements can be added at any index  || B. Elements can only be added at the end of the ArrayList. || C. The size of an ArrayList cannot be changed after creation. || D. An ArrayList can only store primitive data types.
+A 
+easy 
+arraylist 
+What method is used to add an element to the end of an ArrayList? || A. add() || B. insert() || C. append() || D. push()
+A
+easy 
+arraylist 
+What method is used to remove an element at a specific index in an ArrayList? || A. remove() || B. delete() || C. erase() || D. pop()
+A
+easy
+arraylist
+What method is used to get the element at a specific index in an ArrayList? || A. retrieve() || B. get() || C. access() || D. fetch()
+B
+easy
+arraylist 
+What method is used to get the number of elements in an ArrayList? || A. length() || B. count() || C. size() || D. elements()
+C
+easy
+arraylist
+What is binary search in Java? || A. A search algorithm that works by repeatedly dividing the search interval in half. || B. A sorting algorithm that uses a divide and conquer approach || C. A recursive algorithm that searches for a specified value in a tree-like data structure. || D. An algorithm that sorts elements by comparing adjacent elements and swapping them if they are in the wrong order.
+A
+easy
+binarysearch
+What is the precondition for using binary search on an array in Java? || A. The array must be sorted in descending order. || B. The array can be in any order. || C. The array must be of fixed size. || D. The array must be sorted in ascending order.
+D
+easy
+binarysearch
+What is the index of the middle element in the array when performing binary search on an array of length n? || A. n/2 || B. (n-1)/2 || C. (n+1)/2 || D. (n-2)/2
+B
+hard
+binarysearch
+What is the main advantage of binary search over linear search in Java? || A. Binary search is faster than linear search for small arrays. || B. Binary search is faster than linear search for large arrays. || C. Binary search can search for elements in unsorted arrays. || D. Binary search can search for elements in arrays of any size.
+B
+easy
+binarysearch
+Which of the following is NOT a key feature of HashMap in Java? || A. Allows duplicate keys || B. Maintains insertion order || C. Provides constant-time complexity for basic operations || D. Allows null values as keys
+B
+medium
+hashmap
+What is the time complexity of HashMap's get() and put() methods in the best case scenario? || A. O(1) || B. O(n) || C. O(log n) || D. O(n^2)
+A
+medium
+hashmap
+What happens when you try to add a key-value pair to a HashMap where the key already exists? || A. The new value will replace the old value associated with the key. || B. The new key-value pair will be appended to the end of the HashMap. || C. The HashMap will throw an exception. || D. The new key-value pair will be ignored.
+A
+easy
+hashmap
+Which of the following statements about HashMap in Java is true? || A. HashMap is thread-safe by default. || B. HashMap guarantees the order of key-value pairs based on their keys. || C. HashMap is an implementation of the SortedMap interface. || D. HashMap allows null values but not null keys.
+D
+medium
+hashmap
+Which of the following methods can be used to remove a key-value pair from a HashMap in Java? || A. remove() || B. delete() || C. erase() || D. clear()
+A
+easy
+hashmap
+What is the initial capacity of a HashMap in Java? || A. 10 || B. 16 || C. 32 || D. It varies depending on the implementation
+B
+hard
+hashmap
+Which of the following methods can be used to check if a key exists in a HashMap in Java? || A. contains() || B. hasKey() || C. containsKey() || D. isKeyPresent()
+C
+easy
+hashmap
+Which of the following is NOT a valid data type for keys or values in a HashMap? || A. Integer || B. String || C. Double || D. ArrayList
+D
+easy
+hashmap
+What happens if you try to put a key-value pair into a HashMap with a key that already exists in the map? || A. The new value will be appended to the existing value || B. The map will throw an exception. || C. The map will overwrite the existing value with the new value. || D. The new key-value pair will be ignored.
+C
+easy
+hashmap
+What method is used to add a key-value pair to a HashMap in Java? || A. put() || B. add() || C. insert() || D. append()
+A
+easy
+hashmap
+What method is used to get the value associated with a key in a HashMap in Java? || A. get() || B. retrieve() || C. access() || D. fetch()
+A
+easy
+hashmap
+What is the main advantage of using a HashMap over a regular array in Java? || A. A HashMap can store elements of different data types. || B. A HashMap provides constant-time access to elements. || C. A HashMap is more memory-efficient than a regular array. || D. A HashMap can only store primitive data types.
+B
+medium
+hashmap
+What is recursion? || A. A programming language || B. A design pattern || C. A function calling itself || D. A mathematical formula
+C
+easy
+recursion
+What is the base case in recursion? || A. The first case in a recursive function || B. The last case in a recursive function || C. The case with the smallest input that does not require further recursion || D. The case with the largest input that requires further recursion
+C
+easy
+recursion
+What is the main advantage of using recursion in programming? || A. Recursion makes the code more efficient || B. Recursion eliminates the need for loops || C. Recursion reduces the complexity of code || D. Recursion improves code readability
+D
+medium
+recursion
+What happens if a recursive function does not have a base case? || A. The function will run indefinitely and may cause a stack overflow error || B. The function will not compile || C. The function will terminate abruptly without any output || D. The function will continue to call itself indefinitely without any output
+A
+medium
+recursion
+What is the concept of "recursion stack"? || A. A data structure used in recursive algorithms || B. A separate stack used for recursive functions || C. A memory area reserved for recursive functions || D. A type of stack used in mathematical calculations
+A
+medium
+recursion
+What is tail recursion? || A. A type of recursion that involves a circular reference || B. A type of recursion that uses a tail pointer || C. A type of recursion that returns the final result directly without any further computation || D. A type of recursion that involves two or more functions calling each other
+C
+medium
+recursion
+Which of the following is NOT a characteristic of a recursive algorithm? || A. It has a base case || B. It uses a loop to iterate || C. It calls itself || D. It breaks a problem into smaller subproblems
+B
+easy
+recursion
+What is the time complexity of a recursive algorithm with multiple recursive calls? || A. O(1) || B. O(n) || C. O(log n) || D. It depends on the specific implementation
+D
+medium
+recursion
+What is the disadvantage of using recursion in programming? || A. Recursion increases the code complexity || B. Recursion requires more memory || C. Recursion is slower than iterative approaches || D. Recursion is not supported in all programming languages
+B
+easy
+recursion
+Which of the following is an example of a problem that can be solved using recursion? || A. Sorting an array || B. Searching for an element in a linked list || C. Calculating the factorial of a number || D. Traversing a binary tree in level-order
+C
+medium
+recursion
+What is the difference between direct and indirect recursion in Java? || A. Direct recursion is when a function calls itself, while indirect recursion is when a function calls another function. || B. Direct recursion is when a function calls another function, while indirect recursion is when a function calls itself. || C. Direct recursion is more memory-efficient than indirect recursion. || D. Indirect recursion is more common than direct recursion in Java.
+A
+medium
+recursion
