@@ -3,12 +3,14 @@ package com.nighthawk.spring_portfolio.mvc.score;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.nighthawk.spring_portfolio.mvc.jwt.JwtTokenUtil;
+import com.nighthawk.spring_portfolio.mvc.quiz.Quiz;
+import com.nighthawk.spring_portfolio.mvc.quiz.QuizJpaRepository;
+
 import java.util.*;
-import java.text.SimpleDateFormat;
 
 @RestController
 @RequestMapping("/api/score")
@@ -24,17 +26,27 @@ public class ScoreApiController {
     @Autowired
     private ScoreJpaRepository repository;
 
-   
+    @Autowired
+    private JwtTokenUtil jwtUtil;
+
+    @Autowired
+    private QuizJpaRepository quizRepo;
+
     @GetMapping("/")
     public ResponseEntity<List<Score>> getScore() {
         return new ResponseEntity<>( repository.findAllByOrderByEmailAsc(), HttpStatus.OK);
     }
 
     @PostMapping("/postscore")
-    public Score postScore(@RequestBody Score score) {
-        Score scoreReturn = new Score(score.getId(), score.getEmail(), score.getQuiz(), score.getAttempt(), score.getCorrect(), score.getTotal());
-        //return scoreReturn; 
-        return repository.save(scoreReturn);
+    public ResponseEntity<?> postScore(@RequestBody Submission submission, @CookieValue("jwt") String str) {
+        String email = jwtUtil.getUsernameFromToken(str);
+        int[] scoreAndTotal = checkAnswers(submission.getSub());
+        if (scoreAndTotal == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        Score scoreReturn = new Score(email, submission.getQuiz(), repository.findAllByEmail(email).size() + 1, scoreAndTotal[0], scoreAndTotal[1], submission);
+        repository.save(scoreReturn);
+        return new ResponseEntity<>(scoreReturn, HttpStatus.OK);
     }
 
     @GetMapping("/deletescore/{id}")
@@ -65,7 +77,20 @@ public class ScoreApiController {
         return repository.save(score2); 
     }
     
-
-
-  
+    private int[] checkAnswers(Map<String,String> sub) {
+        int[] scoreAndTotal = {0, 0};
+        for (Map.Entry<String,String> entry: sub.entrySet()) {
+            List<Quiz> oquiz = quizRepo.findByQuestionIgnoreCase(entry.getKey());
+            if (oquiz.size() != 0) {
+                Quiz quiz = oquiz.get(0);
+                if (quiz.getAnswer().charAt(0) == entry.getValue().charAt(0)) {
+                    scoreAndTotal[0]++;
+                }
+                scoreAndTotal[1]++;
+            } else {
+                return null;
+            }
+        }
+        return scoreAndTotal;
+    }
 }

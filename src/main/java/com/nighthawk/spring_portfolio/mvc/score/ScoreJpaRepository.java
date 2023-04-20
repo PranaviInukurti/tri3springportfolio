@@ -1,10 +1,8 @@
 package com.nighthawk.spring_portfolio.mvc.score;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-
 
 /*
 Extends the JpaRepository interface from Spring Data JPA.
@@ -15,5 +13,5 @@ Extends the JpaRepository interface from Spring Data JPA.
 public interface ScoreJpaRepository extends JpaRepository<Score, Long> {
 
     List<Score> findAllByOrderByEmailAsc();
-
+    List<Score> findAllByEmail(String email);
 }
