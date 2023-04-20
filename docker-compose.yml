@@ -1,10 +1,10 @@
 version: '3'
 services:
   web:
-    image: java_springv1_codelingo_v2
+    image: java_springv1_codelingo_v3
     build: .
     ports:
-      - "8201:8085"
+      - "8202:8085"
     volumes:
       - persistent_volume:/app/volumes
     restart: unless-stopped
@@ -14,4 +14,4 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: /home/ubuntu/tri3_codelingo_8201/volumes 
+      device: /home/ubuntu/tri3_codelingo_8202/volumes 
